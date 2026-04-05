@@ -1,0 +1,14 @@
+D:\Fresher_IP\day2assignment\bin\Debug\net10.0\day2assignment.exe
+D:\Fresher_IP\day2assignment\bin\Debug\net10.0\day2assignment.deps.json
+D:\Fresher_IP\day2assignment\bin\Debug\net10.0\day2assignment.runtimeconfig.json
+D:\Fresher_IP\day2assignment\bin\Debug\net10.0\day2assignment.dll
+D:\Fresher_IP\day2assignment\bin\Debug\net10.0\day2assignment.pdb
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\day2assignment.GeneratedMSBuildEditorConfig.editorconfig
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\day2assignment.AssemblyInfoInputs.cache
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\day2assignment.AssemblyInfo.cs
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\day2assignment.csproj.CoreCompileInputs.cache
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\day2assignment.dll
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\refint\day2assignment.dll
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\day2assignment.pdb
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\day2assignment.genruntimeconfig.cache
+D:\Fresher_IP\day2assignment\obj\Debug\net10.0\ref\day2assignment.dll

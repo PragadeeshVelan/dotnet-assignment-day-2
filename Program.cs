@@ -1,49 +1,81 @@
 ﻿class Grading
 {
        static void Main(string[] args)
+{
+    int n;
+
+    while (true)
     {
-
-        // The main function regarding to the "Student Grade Calculator" question .
-
-
         Console.WriteLine("Enter the number of subjects : ");
-        int n = Convert.ToInt32(Console.ReadLine());
-        String[] subject = new string[n];
-        int[] marks = new int[n];
-        for(int i = 0 ; i < n ; i++)
+        string? input = Console.ReadLine();
+
+        if (!int.TryParse(input, out n) || n <= 0)
         {
-            Console.WriteLine("Enter the subject "+i+" name :");
-            subject[i] = Console.ReadLine();
-            Console.WriteLine("Enter the subject "+i+" marks :");
-            marks[i] = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Invalid input. Enter a correct number.");
+            continue;
         }
-        bool isokey = true;
-        foreach (int i in marks)
+        break;
+    }
+
+    string[] subject = new string[n];
+    int[] marks = new int[n];
+
+    int temp ; 
+
+    for (int i = 0; i < n; i++)
+    {
+        while (true)
         {
-            if(i<0 || i > 100)
+            Console.WriteLine($"Enter the subject {i + 1} name : ");
+            string? subInput = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(subInput) || int.TryParse(subInput, out temp))
             {
-                Console.WriteLine("You entered invalid inputs ");
-                isokey = false;
+                Console.WriteLine("enter the correct name !");
+                continue;
             }
+
+            subject[i] = subInput;
+            break;
         }
-        if (isokey)
+
+        while (true)
         {
-            Student_Grade(n , marks , subject);
+            Console.WriteLine($"Enter the subject {i + 1} marks : ");
+            string? markInput = Console.ReadLine();
+
+            if (!int.TryParse(markInput, out marks[i]))
+            {
+                Console.WriteLine("Invalid input. Enter a valid number.");
+                continue;
+            }
+
+            if (marks[i] < 0 || marks[i] > 100)
+            {
+                Console.WriteLine("Marks must be between 0 and 100.");
+                continue;
+            }
+
+            break;
         }
+    }
+
+    Student_Grade(n, marks, subject);
+}
 
         // This main function regarding to the "Basic Calculator" question .
 
-        Calculator.calc(args);
+        // Calculator.calc(args);
 
         // This main function regarding to the "Simple Banking System" question .
 
-        Banking b1 = new Banking("velan" , 500);
+        // Banking b1 = new Banking("velan" , 500);
 
-        Console.WriteLine(b1.account_holder_name);
-        b1.deposit(5023);
-        b1.withdrawal(1098);
-        b1.balance();
-    }
+        // Console.WriteLine(b1.account_holder_name);
+        // b1.deposit(5023);
+        // b1.withdrawal(1098);
+        // b1.balance();
+    // }
     static void Student_Grade(int n , int[] mark , String[] subject)
     {
         int total =0 ;
@@ -58,83 +90,83 @@
             else{Console.WriteLine(single_subject + ": E ");}
             total += single_mark;
         }
-        Console.WriteLine("Average mark is : " + total/n);
+        Console.WriteLine("Average mark is : " + total/(double)n);
     }
 }
 
-class Calculator
-{
-    public static void calc(string[] args)
-    {
-        Console.WriteLine("Enter the first number : ");
-        int num1 = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter the second number : ");
-        int num2 = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter the operator : ");
-        String op = Console.ReadLine();
-        try
-        {
-            switch (op)
-            {
-                case "+":
-                    Console.WriteLine("Result : " + (num1 + num2));
-                    break;
-                case "-":
-                    Console.WriteLine("Result : " + (num1 - num2));
-                    break;
-                case "*":
-                    Console.WriteLine("Result : " + (num1 * num2));
-                    break;
-                case "/":
-                    Console.WriteLine("Result : " + (num1 / num2));
-                    break;
-                default:
-                    Console.WriteLine("Invalid operator");
-                    break;
-            }
-        }
-        catch(Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-    }
-}
+// class Calculator
+// {
+//     public static void calc(string[] args)
+//     {
+//         Console.WriteLine("Enter the first number : ");
+//         int num1 = Convert.ToInt32(Console.ReadLine());
+//         Console.WriteLine("Enter the second number : ");
+//         int num2 = Convert.ToInt32(Console.ReadLine());
+//         Console.WriteLine("Enter the operator : ");
+//         String op = Console.ReadLine();
+//         try
+//         {
+//             switch (op)
+//             {
+//                 case "+":
+//                     Console.WriteLine("Result : " + (num1 + num2));
+//                     break;
+//                 case "-":
+//                     Console.WriteLine("Result : " + (num1 - num2));
+//                     break;
+//                 case "*":
+//                     Console.WriteLine("Result : " + (num1 * num2));
+//                     break;
+//                 case "/":
+//                     Console.WriteLine("Result : " + (num1 / num2));
+//                     break;
+//                 default:
+//                     Console.WriteLine("Invalid operator");
+//                     break;
+//             }
+//         }
+//         catch(Exception e)
+//         {
+//             Console.WriteLine(e.Message);
+//         }
+//     }
+// }
 
-class Banking
-{
-    public String account_holder_name;
-    public double amount_balance;
-    public Banking( String account_holder_name , double amount_balance)
-    {
-        this.account_holder_name = account_holder_name;
-        this.amount_balance = amount_balance;
-    }
-    public void deposit (int amount)
-    {
-        if(amount <0)
-        {
-            Console.WriteLine("Invalid amount");
-        }
-        else
-        {
-            amount_balance+=amount;
-            Console.WriteLine("Amount added to the "+ account_holder_name +"'s account");
-        }
-    }
-    public void withdrawal(int amount)
-    {
-        if(amount < 0 || amount > amount_balance)
-        {
-            Console.WriteLine("Invalid amount");
-        }
-        else
-        {
-            amount_balance-=amount;
-            Console.WriteLine("Amount withrew to the "+ account_holder_name +"'s account");
-        }
-    }
-    public void balance()
-    {
-        Console.WriteLine("The balance amount is :" + amount_balance);
-    }
-}
+// class Banking
+// {
+//     public String account_holder_name;
+//     public double amount_balance;
+//     public Banking( String account_holder_name , double amount_balance)
+//     {
+//         this.account_holder_name = account_holder_name;
+//         this.amount_balance = amount_balance;
+//     }
+//     public void deposit (int amount)
+//     {
+//         if(amount <0)
+//         {
+//             Console.WriteLine("Invalid amount");
+//         }
+//         else
+//         {
+//             amount_balance+=amount;
+//             Console.WriteLine("Amount added to the "+ account_holder_name +"'s account");
+//         }
+//     }
+//     public void withdrawal(int amount)
+//     {
+//         if(amount < 0 || amount > amount_balance)
+//         {
+//             Console.WriteLine("Invalid amount");
+//         }
+//         else
+//         {
+//             amount_balance-=amount;
+//             Console.WriteLine("Amount withrew to the "+ account_holder_name +"'s account");
+//         }
+//     }
+//     public void balance()
+//     {
+//         Console.WriteLine("The balance amount is :" + amount_balance);
+//     }
+// }
